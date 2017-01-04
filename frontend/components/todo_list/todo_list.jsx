@@ -9,10 +9,10 @@ class TodoList extends React.Component {
   }
   componentDidMount(){
     this.props.fetchTodos();
+    this.props.fetchAllSteps();
   }
 
   render(){
-    console.log(this.props);
     return (
       <div>
         <ul>
@@ -20,11 +20,14 @@ class TodoList extends React.Component {
             <TodoListItem
               key={todo.id}
               todo={todo}
-              removeTodo={this.props.removeTodo}
-              receiveTodo={this.props.receiveTodo}/>
+              deleteTodo={this.props.deleteTodo}
+              updateTodo={this.props.updateTodo}/>
           ))}
-      </ul>
-      <TodoForm receiveTodo={this.props.receiveTodo}/>
+        </ul>
+        <TodoForm
+          errors={this.props.errors}
+          createTodo={this.props.createTodo}
+          clearErrors={this.props.clearErrors}/>
 
       </div>
   );}

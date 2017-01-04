@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import TodoDetailView from './todo_detail_view';
-import { receiveTodo, receiveTodos, removeTodo } from '../../actions/todo_actions';
+import { receiveTodo, receiveTodos, removeTodo, deleteTodo } from '../../actions/todo_actions';
 import { receiveStep, receiveSteps, removeStep } from '../../actions/step_actions';
 
 // import { allTodos } from '../reducers/selectors';
@@ -11,7 +11,8 @@ import { receiveStep, receiveSteps, removeStep } from '../../actions/step_action
 
 const mapDispatchToProps = dispatch =>({
   receiveSteps: (steps) => dispatch(receiveSteps(steps)),
-  removeTodo: (todo) => dispatch(removeTodo(todo))
+  removeTodo: (todo) => dispatch(removeTodo(todo)),
+  deleteTodo: (todo) => dispatch(deleteTodo(todo))
 });
 
 export default connect(null, mapDispatchToProps)(TodoDetailView);

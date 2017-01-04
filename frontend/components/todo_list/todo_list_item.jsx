@@ -20,8 +20,9 @@ class TodoListItem extends React.Component {
     e.preventDefault();
     let donebutton = this.props.todo;
     donebutton.done = !donebutton.done;
-    this.props.receiveTodo(donebutton);
+    this.props.updateTodo(donebutton);
   }
+
    showDetail(e){
       this.setState({detail: !this.state.detail});
    }
@@ -29,7 +30,7 @@ class TodoListItem extends React.Component {
 
   render () {
     let doneStatus =  this.props.todo.done ? "Undo" : "Done";
-    let detailView = this.state.detail ? <TodoDetailView todo_id={this.state.todo.id}/> : <div></div>;
+    let detailView = this.state.detail ? <TodoDetailView todo={this.state.todo} todo_id={this.state.todo.id}/> : <div></div>;
     return (
       <div>
         <li>

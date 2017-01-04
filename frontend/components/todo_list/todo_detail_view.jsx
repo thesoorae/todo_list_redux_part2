@@ -5,12 +5,13 @@ import StepList from '../step_list/step_list_container.jsx';
 class TodoDetailView extends React.Component{
   constructor(props){
     super(props);
+    console.log('Detail props:', props);
     this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleDelete (e) {
   e.preventDefault();
-  // this.props.removeTodo(this.state.todo.id);
+  this.props.deleteTodo(this.props.todo);
 }
 
   render(){

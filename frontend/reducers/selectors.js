@@ -11,11 +11,11 @@ export const allTodos = (state) => {
   return id_array;
 };
 
-export const stepsByTodoId = (state, todoId) => {
+export const stepsByTodoId = (state, { todo_id }) => {
   // state.steps.filter(step => step.todo_id === todoId);
   let steps = [];
   for(let key in state.steps){
-    if (state.steps[key].todo_id === todoId) steps.push(state.steps[key]);
+    if (state.steps[key].todo_id === todo_id) steps.push(state.steps[key]);
   }
   return steps;
 };
