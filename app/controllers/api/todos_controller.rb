@@ -37,7 +37,7 @@ class Api::TodosController < Api::ApiController
   private
 
   def todo_params
-    params.require(:todo).permit(:title, :body, :done, [:tag_names])
+    params.require(:todo).permit(:title, :body, :done, tag_names: [])
   end
 
 end
